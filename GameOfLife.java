@@ -11,21 +11,21 @@
         String fileName = args[0];
         //// Uncomment the test that you want to execute, and re-compile.
         //// (Run one test at a time).
-        test1("square.dat");
+        //test1("square.dat");
         //// test2(fileName);
         //test3("line.dat", 3);
         //play("line.dat");
     }
 
     // Reads the data file and prints the initial board.
-    public static void test1(String fileName) {
+    private static void test1(String fileName) {
         int[][] board = read(fileName);
         print(board);
     }
 
     // Reads the data file, and runs a test that checks 
     // the count and cellValue functions.
-    public static void test2(String fileName) {
+    private static void test2(String fileName) {
         int[][] board = read(fileName);
         //// Write here code that tests that the count and cellValue functions
         //// are working properly, and returning the correct values.
@@ -33,7 +33,7 @@
 
     // Reads the data file, plays the game for Ngen generations, 
     // and prints the board at the beginning of each generation.
-    public static void test3(String fileName, int Ngen) {
+    private static void test3(String fileName, int Ngen) {
         int[][] board = read(fileName);
         for (int gen = 0; gen < Ngen; gen++) {
             System.out.println("Generation " + gen + ":");
@@ -43,7 +43,7 @@
     }
     
     // Reads the data file and plays the game, forever.
-    public static void play(String fileName) {
+    private static void play(String fileName) {
         int[][] board = read(fileName);
         while (true) {
             show(board);
@@ -150,7 +150,7 @@
     // In order to handle any given board size, we scale the X and Y dimensions according to the board size.
     // This results in the following visual effect: The smaller the board, the larger the squares
     // representing cells.
-    public static void show(int[][] board) {
+    private static void show(int[][] board) {
         StdDraw.setCanvasSize(900, 900);
         int rows = board.length;
         int cols = board[0].length;
