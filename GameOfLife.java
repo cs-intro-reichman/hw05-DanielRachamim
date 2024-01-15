@@ -11,21 +11,21 @@
         String fileName = args[0];
         //// Uncomment the test that you want to execute, and re-compile.
         //// (Run one test at a time).
-        //// test1(fileName);
+        test1("square.dat");
         //// test2(fileName);
-        test3("line.dat", 3);
+        //test3("line.dat", 3);
         //play("line.dat");
     }
 
     // Reads the data file and prints the initial board.
-    private static void test1(String fileName) {
+    public static void test1(String fileName) {
         int[][] board = read(fileName);
         print(board);
     }
 
     // Reads the data file, and runs a test that checks 
     // the count and cellValue functions.
-    private static void test2(String fileName) {
+    public static void test2(String fileName) {
         int[][] board = read(fileName);
         //// Write here code that tests that the count and cellValue functions
         //// are working properly, and returning the correct values.
@@ -33,7 +33,7 @@
 
     // Reads the data file, plays the game for Ngen generations, 
     // and prints the board at the beginning of each generation.
-    private static void test3(String fileName, int Ngen) {
+    public static void test3(String fileName, int Ngen) {
         int[][] board = read(fileName);
         for (int gen = 0; gen < Ngen; gen++) {
             System.out.println("Generation " + gen + ":");
@@ -43,7 +43,7 @@
     }
     
     // Reads the data file and plays the game, forever.
-    private static void play(String fileName) {
+    public static void play(String fileName) {
         int[][] board = read(fileName);
         while (true) {
             show(board);
@@ -58,7 +58,7 @@
     // and the rightmost columns. Thus the actual board is surrounded by a "frame" of zeros. You can think
     // of this frame as representing the infinite number of dead cells that exist in every direction.
     // This function assumes that the input file contains valid data, and does no input testing.
-    private static int[][] read(String fileName) {
+    public static int[][] read(String fileName) {
         In in = new In(fileName); // Constructs an In object for reading the input file
         int rows = Integer.parseInt(in.readLine());
         int cols = Integer.parseInt(in.readLine());
@@ -80,7 +80,7 @@
     // Creates a new board from the given board, using the rules of the game.
     // Uses the cellValue(board,i,j) function to compute the value of each 
     // cell in the new board. Returns the new board.
-    private static int[][] evolve(int[][] board) {
+    public static int[][] evolve(int[][] board) {
         int rows = board.length - 2;
         int cols = board[0].length - 2;
         int[][] newBoard = new int[rows + 2][cols + 2];
@@ -102,7 +102,7 @@
     // Assumes that i is at least 1 and at most the number of rows in the board - 1. 
     // Assumes that j is at least 1 and at most the number of columns in the board - 1. 
     // Uses the count(board,i,j) function to count the number of alive neighbors.
-    private static int cellValue(int[][] board, int i, int j) {
+    public static int cellValue(int[][] board, int i, int j) {
         int aliveNeighbors = count(board, i, j);
         if (board[i][j] == 1) {
             if (aliveNeighbors < 2 || aliveNeighbors > 3) {
@@ -123,7 +123,7 @@
     // (The cell itself is not counted).
     // Assumes that i is at least 1 and at most the number of rows in the board - 1. 
     // Assumes that j is at least 1 and at most the number of columns in the board - 1. 
-    private static int count(int[][] board, int i, int j) {
+    public static int count(int[][] board, int i, int j) {
         int count = 0;
         for (int x = i - 1; x <= i + 1; x++) {
             for (int y = j - 1; y <= j + 1; y++) {
@@ -136,7 +136,7 @@
     }
 
     // Prints the board. Alive and dead cells are printed as 1 and 0, respectively.
-    private static void print(int[][] arr) {
+    public static void print(int[][] arr) {
         for (int i = 1; i < arr.length - 1; i++) {
             for (int j = 1; j < arr[0].length - 1; j++) {
                 System.out.print(" " + arr[i][j]);
@@ -150,7 +150,7 @@
     // In order to handle any given board size, we scale the X and Y dimensions according to the board size.
     // This results in the following visual effect: The smaller the board, the larger the squares
     // representing cells.
-    private static void show(int[][] board) {
+    public static void show(int[][] board) {
         StdDraw.setCanvasSize(900, 900);
         int rows = board.length;
         int cols = board[0].length;
