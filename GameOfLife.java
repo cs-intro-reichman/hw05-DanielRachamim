@@ -11,9 +11,9 @@
         String fileName = args[0];
         //// Uncomment the test that you want to execute, and re-compile.
         //// (Run one test at a time).
-        //test1("square.dat");
+        //test1("line.dat");
         //// test2(fileName);
-        //test3("line.dat", 3);
+        test3("line.dat", 3);
         //play("line.dat");
     }
 
@@ -139,7 +139,7 @@
     public static void print(int[][] arr) {
         for (int i = 1; i < arr.length - 1; i++) {
             for (int j = 1; j < arr[0].length - 1; j++) {
-                System.out.print(" " + arr[i][j]);
+                System.out.printf("%3s", + arr[i][j]);
             }
             System.out.println();
         }
